@@ -1,0 +1,100 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "assets/css/material-dashboard.css";
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import "~bootstrap-css-only/css/bootstrap.min.css";
+@import "~intro.js/minified/introjs.min.css";
+
+.not-found {
+  margin-top: 30px;
+  font-size: 20px;
+  color: rgba(74, 74, 74, 0.98);
+  text-align: center;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.size25 {
+  font-size: 25px !important;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+.mat-dialog-container {
+  padding: 40px !important;
+}
+
+.red {
+  color: red;
+}
+
+.link {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.line {
+  border-bottom: 1px solid purple;
+  padding-top: 20px;
+}
+
+.gray {
+  color: #8f8f8f;
+}
+
+.main-panel > .content {
+  margin-top: 30px !important;
+}
+
+app-header {
+  width: 100%;
+}
+
+@-webkit-keyframes glowing {
+  0% {
+    -webkit-box-shadow: 0 0 3px rgba(38, 40, 32, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 3px #1e1d16;
+  }
+}
+
+@-moz-keyframes glowing {
+  0% {
+    -moz-box-shadow: 0 0 3px rgba(38, 40, 32, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 3px #1e1d16;
+  }
+}
+
+@-o-keyframes glowing {
+  0% {
+    box-shadow: 0 0 3px rgba(38, 40, 32, 0);
+  }
+  100% {
+    box-shadow: 0 0 3px #1e1d16;
+  }
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 3px rgba(38, 40, 32, 0);
+  }
+  100% {
+    box-shadow: 0 0 3px #1e1d16;
+  }
+}
+
+
+.blink-button {
+  -webkit-animation: glowing 700ms infinite;
+  -moz-animation: glowing 700ms infinite;
+  -o-animation: glowing 700ms infinite;
+  animation: glowing 700ms infinite;
+}
+

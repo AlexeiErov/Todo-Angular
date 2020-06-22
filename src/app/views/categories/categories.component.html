@@ -1,0 +1,110 @@
+<div id="categories">
+  <div class="logo">
+
+    <span class="nav-title">CATEGORIES</span>
+
+    <span class="add-icon-area">
+      <button
+        mat-icon-button
+        class="add-icon"
+        (click)="openAddDialog()"
+      >
+        <mat-icon>add</mat-icon>
+      </button>
+    </span>
+
+  </div>
+
+
+  <div class="sidebar-wrapper">
+    <div class="line"></div>
+    <ul class="nav">
+
+      <div class="search-category-area">
+        <mat-form-field class="example-full-width">
+          <input
+
+            (keydown.escape)="clearAndSearch()"
+            (ngModelChange)="this.checkFilterChanged()"
+            [(ngModel)]="filterTitle"
+
+            matInput
+            maxlength="256"
+            placeholder="Category search"
+            class="test"
+
+          />
+
+          <button
+            (click)="clearAndSearch()"
+            *ngIf="filterTitle && filterTitle.trim().length > 0"
+            aria-label="Clear"
+            class="search-category-button size25 test"
+            mat-button
+            mat-icon-button
+            matSuffix
+          >
+            <mat-icon>clear</mat-icon>
+          </button>
+          <button
+            *ngIf="filterTitle &&filterTitle.trim().length > 0"
+            (click)="search()"
+            [ngClass]="{'blink-button': filterChanged}"
+            mat-button
+            matsuffix
+            mat-icon-button
+            class="blink-button size25 test"
+          >
+            <mat-icon>search</mat-icon>
+          </button>
+
+        </mat-form-field>
+      </div>
+
+      <li
+        class="nav-item category"
+
+        [class.active]="selectedCategory === null"
+      >
+        <a class="nav-link pointer">
+          <span class="all-category-title"
+          >All</span>
+          <span class="uncompleted-count">{{ unfinishedCountForCategoryAll || 0}}</span>
+        </a>
+
+      </li>
+
+      <div class="line"></div>
+
+      <div *ngIf="!categories || categories.length === 0">
+        <p class="not-found">Not found</p>
+      </div>
+
+      <li class="nav-item category"
+          *ngFor="let category of categories; let idx = index"
+          (click)="showCategory(category)"
+          [class.active]="(selectedCategory && category) && category.id === selectedCategory.id"
+          (mouseleave)="showEditIcon(false, idx)"
+          (mouseenter)="showEditIcon(true, idx)"
+      >
+        <a class="nav-link">
+          <span class="category-title">{{ category.title }}</span>
+          <span class="edit-category-icon-area">
+            <mat-icon
+              *ngIf="(showEditIcon && idx == indexMouseMove) || isMobile || isTablet"
+              (click)="$event.stopPropagation(); openEditDialog(category)"
+              class="edit-category-icon"
+            >
+              edit
+            </mat-icon>
+              </span>
+          <span class="uncompleted-count">{{ category.uncompletedCount || 0}}</span>
+        </a>
+      </li>
+
+    </ul>
+  </div>
+  <div class="sidebar-background"></div>
+</div>
+
+

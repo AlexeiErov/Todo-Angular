@@ -1,0 +1,101 @@
+<!--<div class="wrapper ">-->
+<ng-sidebar-container
+  style=" height: 100vh"
+>
+  <ng-sidebar
+    [opened]="menuOpened"
+    [closeOnClickOutside]="false"
+    [closeOnClickBackdrop]="true"
+    [showBackdrop]="showBackdrop"
+    [mode]="menuMode"
+    [animate]="true"
+    [position]="menuPosition"
+    [autoFocus]="false"
+    (onClosed)="onClosedMenu()"
+  >
+
+
+    <div
+      class="sidebar" data-background-color="black"
+      data-color="purple"
+      data-step="1"
+      data-intro="Tasks filter, add/delete/edit categories"
+      data-position="right"
+    >
+
+      <app-categories
+
+        [categories]="categories"
+        [selectedCategory]="selectedCategory"
+        [unfinishedCountForCategoryAll]="unfinishedCountForCategoryAll"
+
+        (selectCategory)="selectCategory($event)"
+        (deleteCategory)="deleteCategory($event)"
+        (updateCategory)="updateCategory($event)"
+        (addCategory)="addCategory($event)"
+        (searchCategory)="searchCategory($event)"
+
+
+      ></app-categories>
+
+    </div>
+  </ng-sidebar>
+
+  <div ng-sidebar-content>
+    <div class="main-panel">
+
+      <nav class="navbar navbar-expand-lg navbar-transparent navbar-absolute fixed-top ">
+<!--        <app-header-->
+<!--          [categoryName]="selectedCategory ? selectedCategory.title : 'All'"-->
+<!--          (toggleStat)="toggleStat($event)"-->
+<!--          [showStat]="showStat"-->
+<!--          (toggleMenu)="toggleMenu()"-->
+<!--        ></app-header>-->
+      </nav>
+
+      <div class="content">
+        <div class="container-fluid">
+
+          <div data-step="2"
+               data-intro="Editable task list with statistics"
+               data-position="bottom">
+<!--            <app-stat-->
+<!--              [totalTasksInCategory]="totalTasksCountInCategory"-->
+<!--              [completeTasksInCategory]="completedCountInCategory"-->
+<!--              [unfinishedTasksInCategory]="unfinishedCountInCategory"-->
+<!--              [showStat]="showStat"-->
+
+<!--            >-->
+<!--            </app-stat>-->
+          </div>
+          <div class="row"
+
+          >
+            <div
+              class="col-12"
+
+            >
+<!--              <app-tasks-->
+
+<!--                [tasks]="tasks"-->
+<!--                [priorities]="priorities"-->
+
+<!--                (updateTask)="onUpdateTask($event)"-->
+<!--                (deleteTask)="onDeleteTask($event)"-->
+<!--                (selectCategory)="onSelectCategory($event)"-->
+<!--                (addTask)="onAddTask($event)"-->
+
+<!--                (filterByStatus)="onFilterTasksByStatus($event)"-->
+<!--                (filterByTitle)="onSearchTasks($event)"-->
+<!--                (filterByPriority)="onFilterTasksByPriority($event)"-->
+<!--                [selectedCategory]="selectedCategory"-->
+
+<!--              ></app-tasks>-->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--</div>-->
+</ng-sidebar-container>
